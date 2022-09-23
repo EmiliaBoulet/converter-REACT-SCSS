@@ -23,6 +23,20 @@ class App extends React.Component {
     this.handleSearchCurrency = this.handleSearchCurrency.bind(this);
   }
 
+
+componentDidMount() {
+  document.title = `conversion de euros vers ${this.state.selectedCurrency}`;
+}
+
+componentDidUpdate(prevProps, prevState) {
+  if (prevState.selectedCurrency !== this.state.selectedCurrency){
+    console.log('didUpdate : mise à jour du titre de la page');
+    document.title = `conversion de euros vers ${this.state.selectedCurrency}`;
+  }
+  
+
+}
+
 handleBaseAmountChange (event){
   this.setState({
     baseAmount: event.target.valueAsNumber,
